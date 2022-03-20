@@ -1,4 +1,4 @@
-package com.toni.department.service;
+package com.toni.department;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

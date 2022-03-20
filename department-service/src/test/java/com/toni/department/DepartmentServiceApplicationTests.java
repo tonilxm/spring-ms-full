@@ -1,4 +1,4 @@
-package com.toni.department.service;
+package com.toni.department;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
