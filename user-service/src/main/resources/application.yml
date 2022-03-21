@@ -1,3 +1,29 @@
 server:
   port: 9002
 
+spring:
+  application:
+    name: user-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: BASIC
+      department-service:
+        connectTimeout: 4000
+        readTimeout: 4000
+        loggerLevel: FULL
+  okhttp:
+    enabled: true
