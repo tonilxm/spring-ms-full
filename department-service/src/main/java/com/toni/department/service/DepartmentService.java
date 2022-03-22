@@ -17,6 +17,13 @@ public class DepartmentService {
     }
 
     public Department findDepartment(Long id) {
-        return this.departmentRepository.getById(id);
+        try {
+            Thread.sleep(3100);
+            return this.departmentRepository.getById(id);
+        } catch (InterruptedException ex) {
+
+        }
+
+        return null;
     }
 }
