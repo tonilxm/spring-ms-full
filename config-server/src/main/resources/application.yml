@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: config-server
+
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: native
   cloud:
     config:
       override-system-properties: true
@@ -12,3 +20,19 @@ spring:
           search-locations:
             classpath:/config
 
+---
+
+spring:
+  config:
+    activate:
+      on-profile: git
+  cloud:
+    config:
+      override-system-properties: true
+      server:
+        git:
+          default-label: master
+          uri: https://github.com/tonilxm/spring-ms-full.git
+          clone-on-start: true
+          search-paths:
+            config-server/src/main/resources/config

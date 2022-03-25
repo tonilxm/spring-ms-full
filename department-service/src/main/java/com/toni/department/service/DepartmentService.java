@@ -1,16 +1,16 @@
 package com.toni.department.service;
 
+import com.toni.department.config.DepartmentServiceConfig;
 import com.toni.department.entity.Department;
 import com.toni.department.repository.DepartmentRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class DepartmentService {
     private final DepartmentRepository departmentRepository;
-
-    public DepartmentService(DepartmentRepository departmentRepository) {
-        this.departmentRepository = departmentRepository;
-    }
+    private final DepartmentServiceConfig config;
 
     public Department saveDepartment(Department department) {
         return this.departmentRepository.save(department);
@@ -18,7 +18,7 @@ public class DepartmentService {
 
     public Department findDepartment(Long id) {
         try {
-            Thread.sleep(3100);
+            Thread.sleep(config.getDelay());
             return this.departmentRepository.getById(id);
         } catch (InterruptedException ex) {
 

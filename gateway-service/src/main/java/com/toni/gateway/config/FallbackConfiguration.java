@@ -1,5 +1,8 @@
 package com.toni.gateway.config;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.*;
@@ -15,6 +18,14 @@ public class FallbackConfiguration {
     }
 
     private Mono<ServerResponse> handleGetFallback(ServerRequest serverRequest) {
-        return ServerResponse.ok().body(Mono.just("Sorry service not stable"), String.class);
+        return ServerResponse.ok().body(Mono.just(new DefaultDepartment(1L, "Default department")), DefaultDepartment.class);
     }
+}
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class DefaultDepartment {
+    private Long id;
+    private String name;
 }

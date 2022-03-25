@@ -56,18 +56,18 @@
 
 	<profiles>
 		<profile>
-			<id>git</id>
+			<id>native</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<spring.profiles.active>git</spring.profiles.active>
+				<spring.profiles.active>native</spring.profiles.active>
 			</properties>
 		</profile>
 		<profile>
-			<id>native</id>
+			<id>git</id>
 			<properties>
-				<spring.profiles.active>native</spring.profiles.active>
+				<spring.profiles.active>git</spring.profiles.active>
 			</properties>
 		</profile>
 	</profiles>
