@@ -45,6 +45,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -73,4 +77,21 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>git</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<spring.profiles.active>git</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>native</id>
+			<properties>
+				<spring.profiles.active>native</spring.profiles.active>
+			</properties>
+		</profile>
+	</profiles>
 </project>
