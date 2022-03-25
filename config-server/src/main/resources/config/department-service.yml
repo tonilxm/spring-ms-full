@@ -1,17 +1,4 @@
-service.delay: 1000
-
-spring:
-  datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create
-  h2:
-    console:
-      enabled: true
+service.delay: 500
 
 eureka:
   client:
@@ -21,4 +8,3 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     hostname: localhost
-
