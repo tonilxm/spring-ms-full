@@ -1,4 +1,4 @@
-service.delay: 2000
+service.delay: 1000
 
 eureka:
   client:
