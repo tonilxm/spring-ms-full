@@ -1,16 +1,38 @@
 server:
   port: 9002
 
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+
 spring:
   application:
     name: department-service
+
   config:
     import: optional:configserver:http://localhost:9296
+
   datasource:
     url: jdbc:h2:tcp://localhost:9090/mem:mydb
     username: sa
     password:
     driverClassName: org.h2.Driver
+
   jpa:
     hibernate:
       ddl-auto: create
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
